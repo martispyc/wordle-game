@@ -16,8 +16,8 @@ const roundiSakums = "Rounds: "
 const punktiSakums = "Punkti: "
 const punktiRoundaSakums = "Punkti Roundam: "
 
-let jaunsRounds = () => {
-  let vards = dabutVardu()
+let jaunsRounds = async () => {
+  let vards = await dabutVardu()
 
   rounds++;
   punkti += punktiRounda;
@@ -35,8 +35,8 @@ let updateText = () => {
 }
 
 
-let dabutVardu = () => {
-  fetch('https://random-word-api.herokuapp.com/word')
+let dabutVardu = async () => {
+  let vards = fetch('https://random-word-api.herokuapp.com/word')
     .then((response) => response.json(response))
     .then((data) => data[0])
     .then((word) => {
@@ -47,6 +47,8 @@ let dabutVardu = () => {
       document.querySelector('.word').innerHTML = shuffleWord(word);
       return word
     })
+
+  return vards
 }
 
 const shuffleWord = (word) => {
@@ -61,14 +63,22 @@ const shuffleWord = (word) => {
 var vards = jaunsRounds();
 
 function inputText() {
-
   vards.then((vards) => {
     let res = '';
     if (vards === document.querySelector('#myText').value) {
       res = "pareizi"
-    } else res = "nepareizi";
+      var vards = jaunsRounds();
+    } else {
+      res = "nepareizi"
+      if (punktiRounda > 0) {
+        punktiRounda -= nonemasPunktiRoundam;
+        updateText()
+      } else {
+        res = "nepareizi, bet jau nevar vairs atņemt punktus"
+        var vards = jaunsRounds();
+      }
+    };
     document.getElementById("demo").innerHTML = res;
-    vards = jaunsRounds();
   }).catch(() => {
     document.getElementById("demo").innerHTML = 'vaards vel nav atrasts';
     punktiRounda -= nonemasPunktiRoundam;
