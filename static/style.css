@@ -6,7 +6,7 @@
 
 body{
 
-background: #1bb295;    
+background: #9c7bff;    
 }
 
 
@@ -31,7 +31,7 @@ background: #1bb295;
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #9c7bff;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
@@ -65,9 +65,10 @@ background: #1bb295;
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: #4CAF50;
+  color: #000;
+  background-color: #f2eb17;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   box-shadow: 0 9px #000;
+
 }

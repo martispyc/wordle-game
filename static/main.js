@@ -4,23 +4,50 @@ const roundsMax = 5;
 const punktiRoundam = 1000;
 const nonemasPunktiRoundam = 100;
 
-var rounds = 1;
+var rounds = 0;
 var punkti = 0;
-var punktiRounda = punktiRoundam;
-  
-// vaardu dabusana un logika
+var punktiRounda = 0;
 
-let vards = fetch('https://random-word-api.herokuapp.com/word')
-  .then((response) => response.json(response))
-  .then((data) => data[0])
-  .then((word) => {
-    console.log(word);
-    return word
-  })
-  .then((word) => {
-    document.querySelector('.word').innerHTML = shuffleWord(word);
-    return word
-  })
+let roundiH3 = document.querySelector('#roundi');
+let punktiH3 = document.querySelector('#punkti');
+let punktiRoundaH3 = document.querySelector('#punktiRoundam');
+
+const roundiSakums = "Rounds: "
+const punktiSakums = "Punkti: "
+const punktiRoundaSakums = "Punkti Roundam: "
+
+let jaunsRounds = () => {
+  let vards = dabutVardu()
+
+  rounds++;
+  punkti += punktiRounda;
+  punktiRounda = punktiRoundam;
+
+  updateText()
+
+  return vards;
+}
+
+let updateText = () => {
+  roundiH3.innerHTML = roundiSakums + rounds;
+  punktiH3.innerHTML = punktiSakums + punkti;
+  punktiRoundaH3.innerHTML = punktiRoundaSakums + punktiRounda;
+}
+
+
+let dabutVardu = () => {
+  fetch('https://random-word-api.herokuapp.com/word')
+    .then((response) => response.json(response))
+    .then((data) => data[0])
+    .then((word) => {
+      console.log(word);
+      return word
+    })
+    .then((word) => {
+      document.querySelector('.word').innerHTML = shuffleWord(word);
+      return word
+    })
+}
 
 const shuffleWord = (word) => {
   var shuffledWord = '';
@@ -31,15 +58,21 @@ const shuffleWord = (word) => {
   return shuffledWord;
 }
 
+var vards = jaunsRounds();
+
 function inputText() {
+
   vards.then((vards) => {
     let res = '';
     if (vards === document.querySelector('#myText').value) {
       res = "pareizi"
     } else res = "nepareizi";
     document.getElementById("demo").innerHTML = res;
+    vards = jaunsRounds();
   }).catch(() => {
     document.getElementById("demo").innerHTML = 'vaards vel nav atrasts';
+    punktiRounda -= nonemasPunktiRoundam;
+    updateText()
   })
 }
 
