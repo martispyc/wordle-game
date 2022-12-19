@@ -33,11 +33,50 @@
     </div>
   </div>
 
+  <button id="startButton" class="button" onclick="restart()">Jauna spēle</button>
+
   <div id="beigtModal" class="modal">
     <div class="modal-content">
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      <span class="closeBeigt close">&times;</span>
+      <h3 id="modalRoundi"></h3>      
+      <h3 id="modalPunkti"></h3>      
+      <button id="restartButton" class="button" onclick="restart()">Velreiz</button>
+      <button id="saglabatButton" class="button" onclick="saglabatDatus()">Saglabāt</button>
     </div>
   </div>
+
+
+  <button id="veidotajuButton" class="button">Veidotāji</button>
+  <div id="veidotajuModal" class="modal">
+    <div class="modal-content">
+      <span class="closeVeidotaji close">&times;</span>
+      <h2>Spēli veidoja Matīss Burmistrs un Edžus Meirāns 11. D</h2>
+    </div>
+  </div>
+
+  <button id="lideriButton" class="button">Līderi</button>
+  <div id="lideriModal" class="modal">
+    <div class="modal-content">
+      <span class="closeLideri close">&times;</span>
+      <h2>Līderi</h2>
+      <table id="lideriTable">
+        <tr>
+          <th>Vieta</th>
+          <th>Vārds</th>
+          <th>Punkti</th>
+        </tr>
+    </div>
+  </div>
+
+  <div id="saglabatModal" class="modal">
+    <div class="modal-content">
+      <span class="closeSaglabat close">&times;</span>
+      <h2>Saglabāt</h2>
+      <input type="text" id="vards" placeholder="Vārds">
+      <button id="saglabatButton" class="button" onclick="sutitDatus()">Saglabāt</button>
+    </div>
+  </div>
+
 </div>
 
   <script src="main.js"></script>

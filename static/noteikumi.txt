@@ -3,7 +3,7 @@
 3. izvelies no visam burtu opcijam
 4. sacenties ar ieprieksejiem rezultatiem
 5. punkti tiek pieskirti par katru pareizi uzrakstito vardu
-6. jo vairak vardu, jo vairak punktu
+6. par katru burtu 10 punkti
 7. jo vairak burtu vardaa, ko uzmineeji, jo vairak punktu
 
 GG >:)
