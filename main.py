@@ -29,4 +29,4 @@ def saglabat():
         return json.dumps(sorted(listRes, key=lambda vi: vi["punkti"], reverse=True))
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=False, host='0.0.0.0')

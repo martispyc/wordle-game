@@ -1,9 +1,8 @@
-1. obligati ievadi savu vardu pirms sac
-2. uzmini pec iespejas vairak vardu 60s
-3. izvelies no visam burtu opcijam
-4. sacenties ar ieprieksejiem rezultatiem
-5. punkti tiek pieskirti par katru pareizi uzrakstito vardu
-6. par katru burtu 10 punkti
-7. jo vairak burtu vardaa, ko uzmineeji, jo vairak punktu
-
-GG >:)
+*  Uzmini pēc iespejas vairāk vārdu 60 sekundēs.
+*  Īzvelies no visām burtu opcijām, kamēr neuzmni vārdu.
+*  Punkti tiek piesķirti par katru pareizi uzrakstīto vārdu.
+*  Par katru burtu 10 punkti.
+*  Jo vairāk burtu vardā, ko uzminēji, jo vairāk punktu.
+*  Ja gribi atkārtot spēli, tad nospied pogu "Vēlreiz"
+*  Ja gribi saglabāt datus, ievadi vārdu pēc spēlēšanas.
+*  Sacenties ar citiem sadaļā "Līeri".

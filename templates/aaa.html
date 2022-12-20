@@ -3,58 +3,70 @@
 
 <head>
   <title>Page Title</title>
-  <link rel="stylesheet" href="style.css" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
-  <div class="w3-panel w3-green">
-  <h1>Burtu spele</h1>
+  <div class="mainPanel">
+    <h1 class="heading">Burtu spele</h1>
 
-  <h2 id="laiks"></h2>
-  <h3 id="roundi"></h3>
-  <h3 id="punkti"></h3>
+    <h2 id="laiks"></h2>
+    <h3 id="roundi"></h3>
+    <h3 id="punkti"></h3>
 
-  <div id="guesses">
+    <div id="guesses">
+    </div>
+
+    <div id="characters">
+    </div>
+
+    <h3 id="demo"></h3>
+    <!-- <p class="word"></p> -->
+
+    <button id="noteikumuButton" class="button">Noteikumi</button>
+
+    <button id="startButton" class="button" onclick="restart()">Jauna spēle</button>
+
+    <button id="veidotajuButton" class="button">Veidotāji</button>
+
+    <button id="lideriButton" class="button">Līderi</button>
+
   </div>
-
-  <div id="characters">
-  </div>
-
-  <p id="demo"></p>
-  <p class="word"></p>
-
-  <button id="noteikumuButton" class="button">Noteikumi</button>
   <div id="noteikumuModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>noteikumi</p>
+      <span class="closeNoteikumu close">&times;</span>
+      <h2>noteikumi</h2>
       <object width="100%" height="100%" data="noteikumi.txt"></object>
     </div>
   </div>
-
-  <button id="startButton" class="button" onclick="restart()">Jauna spēle</button>
-
   <div id="beigtModal" class="modal">
     <div class="modal-content">
       <span class="closeBeigt close">&times;</span>
-      <h3 id="modalRoundi"></h3>      
-      <h3 id="modalPunkti"></h3>      
-      <button id="restartButton" class="button" onclick="restart()">Velreiz</button>
-      <button id="saglabatButton" class="button" onclick="saglabatDatus()">Saglabāt</button>
+      <h3 id="modalRoundi"></h3>
+      <h3 id="modalPunkti"></h3>
+      <div id="saglabatModalContent">
+        <button id="restartButton" class="button" onclick="restart()">Velreiz</button>
+        <button id="saglabatButton" class="button" onclick="saglabatDatus()">Saglabāt</button>
+      </div>
     </div>
   </div>
-
-
-  <button id="veidotajuButton" class="button">Veidotāji</button>
   <div id="veidotajuModal" class="modal">
     <div class="modal-content">
       <span class="closeVeidotaji close">&times;</span>
-      <h2>Spēli veidoja Matīss Burmistrs un Edžus Meirāns 11. D</h2>
+      <h3>Spēli veidoja Matīss Burmistrs un Edžus Meirāns 11. D</p>
     </div>
   </div>
-
-  <button id="lideriButton" class="button">Līderi</button>
+  <div id="saglabatModal" class="modal">
+    <div class="modal-content">
+      <span class="closeSaglabat close">&times;</span>
+      <h2>Saglabāt</h2>
+      <input type="text" id="vards" placeholder="Vārds">
+      <div id="saglabatModalContent">
+        <button id="saglabatButton" class="button" onclick="sutitDatus()">Saglabāt</button>
+      </div>
+    </div>
+  </div>
   <div id="lideriModal" class="modal">
     <div class="modal-content">
       <span class="closeLideri close">&times;</span>
@@ -67,17 +79,6 @@
         </tr>
     </div>
   </div>
-
-  <div id="saglabatModal" class="modal">
-    <div class="modal-content">
-      <span class="closeSaglabat close">&times;</span>
-      <h2>Saglabāt</h2>
-      <input type="text" id="vards" placeholder="Vārds">
-      <button id="saglabatButton" class="button" onclick="sutitDatus()">Saglabāt</button>
-    </div>
-  </div>
-
-</div>
 
   <script src="main.js"></script>
 </body>

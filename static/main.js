@@ -27,6 +27,7 @@ let beigtSpeli = () => {
   }
 }
 
+var counting = false;
 let startCount = () => {
   var counter = setInterval(() => {
     document.getElementById("laiks").innerHTML = count + " secs";
@@ -37,18 +38,27 @@ let startCount = () => {
       document.querySelector("#laiks").innerHTML = "Spēle beigusies";
       document.querySelector("#modalPunkti").innerHTML = "Punkti: " + punkti;
       document.querySelector("#modalRoundi").innerHTML = "Uzminēti vārdi: " + (rounds - 1);
+      counting = false;
+      document.querySelector("#startButton").style.opacity = "1";
       return;
     }
   }, 1000);
 }
 
 let restart = () => {
+  if (counting) {
+    return;
+  }
+
+  counting = true;
+  document.querySelector("#startButton").style.opacity = "0.4";
   rounds = 0;
   punkti = 0;
   count = countStart;
   startCount();
   jaunsRounds();
   updateText();
+  document.querySelector("#demo").innerHTML = "";
 
   let modal = document.getElementById("beigtModal");
   modal.style.display = "none";
@@ -75,6 +85,11 @@ let saglabatDatus = () => {
 let sutitDatus = () => {
   let vards = document.querySelector("#vards").value;
 
+  if (vards.length < 3) {
+    alert("Vārds ir par īsu!");
+    return;
+  }
+
   let data = {
     vards: vards,
     punkti: punkti
@@ -93,6 +108,10 @@ let sutitDatus = () => {
     .then((data) => {
       console.log(data);
     })
+
+  let modal = document.getElementById("saglabatModal");
+  document.querySelector("#demo").innerHTML = "";
+  modal.style.display = "none";
 }
 
 let initButtons = () => {
@@ -216,7 +235,6 @@ let dabutVardu = async () => {
       return word
     })
     .then((word) => {
-      document.querySelector('.word').innerHTML = shuffleWord(word);
       return word
     }).then((vards) => {
       return vards
@@ -236,7 +254,7 @@ const shuffleWord = (word) => {
 
 var modal1 = document.getElementById("noteikumuModal");
 var btn1 = document.getElementById("noteikumuButton");
-var span1 = document.getElementsByClassName("close")[0];
+var span1 = document.getElementsByClassName("closeNoteikumu")[0];
 btn1.onclick = function () {
   modal1.style.display = "block";
 }
